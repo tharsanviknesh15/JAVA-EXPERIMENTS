@@ -1,0 +1,28 @@
+class Payment {
+    void makePayment(double amount) {
+        System.out.println("Amount Paid : " + amount);
+    }
+
+    void makePayment(double amount, double taxPaid) {
+        System.out.println("Amount Paid : " + amount);
+        System.out.println("Tax Paid : " + taxPaid);
+    }
+}
+
+class UPIPayment extends Payment {
+    void makePayment(double amount) {
+        System.out.println("UPI Payment");
+        System.out.println("Amount Paid : " + amount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        UPIPayment upi = new UPIPayment();
+        upi.makePayment(1000);
+        upi.makePayment(1000, 50);
+
+        Payment payment = new UPIPayment();
+        payment.makePayment(2000);
+    }
+}
