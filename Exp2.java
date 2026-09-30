@@ -1,0 +1,69 @@
+ abstract class Employee
+{
+    static String company = "ABC Tech";
+
+    public String department;
+    private double salary;
+    protected String designation;
+    String location;
+
+    Employee(String department, double salary,
+             String designation, String location)
+    {
+        this.department = department;
+        this.salary = salary;
+        this.designation = designation;
+        this.location = location;
+    }
+
+    public double getSalary()
+    {
+        return salary;
+    }
+
+    public void setSalary(double salary)
+    {
+        this.salary = salary;
+    }
+
+    abstract void displayRole();
+}
+
+class Developer extends Employee
+{
+    Developer(String department, double salary,
+              String designation, String location)
+    {
+        super(department, salary, designation, location);
+    }
+
+    void displayRole()
+    {
+        System.out.println("Role: Software Developer");
+    }
+}
+
+public class Exp2
+{
+    public static void main(String[] args)
+    {
+        Developer d = new Developer(
+            "Computer Science",
+            50000,
+            "Software Developer",
+            "Coimbatore"
+        );
+
+        System.out.println("Company: " + Employee.company);
+        System.out.println("Department: " + d.department);
+        System.out.println("Salary: " + d.getSalary());
+        System.out.println("Designation: " + d.designation);
+        System.out.println("Location: " + d.location);
+
+        d.displayRole();
+
+        d.setSalary(55000);
+
+        System.out.println("Updated Salary: " + d.getSalary());
+    }
+}
